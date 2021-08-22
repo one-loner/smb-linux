@@ -1,0 +1,25 @@
+
+   81  ==================samba begins=======================
+   82  sudo apt-get install samba
+   83  cd /etc/samba
+   84  sudo mv smb.conf smb.conf.old
+   85  sudo touch smb.conf
+   86  sudo touch smbusers
+   87  sudo mkdir /opt/FirstTestShare
+   88  sudo chmod 0777 /opt/FirstTestShare
+   89  sudo nano smb.conf
+   90  testparm -s
+   91  sudo service smbd restart
+   92  sudo systemctl enable smbd
+   93  sudo service smbd status
+
+   98  sudo useradd -c "smbuser1" -s /sbin/nologin smbuser1
+  100  sudo useradd -c "smbuser2" -s /sbin/nologin smbuser2
+  101  sudo useradd -c "smbuser3" -s /sbin/nologin smbuser3
+  102  sudo smbpasswd -a smbuser1
+  103  sudo smbpasswd -a smbuser2
+  104  sudo smbpasswd -a smbuser3
+  105  ls  /opt/FirstTestShare/
+  107  ls  /opt/FirstTestShare/1
+  108  cd
+  109  history>history-smb-full.txt
